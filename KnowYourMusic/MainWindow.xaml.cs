@@ -275,5 +275,15 @@ namespace KnowYourMusic
                             x.title.ToLower().IndexOf(str, StringComparison.Ordinal) > 0);
             }
         }
+
+        private void Albums_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void Albums_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

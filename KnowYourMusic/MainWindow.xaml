@@ -29,10 +29,8 @@
 
         <ProgressBar Name="ProgressBar" HorizontalAlignment="Left" Height="22" Grid.Row="4" VerticalAlignment="Top" Width="504" Margin="0,1,0,0" Grid.ColumnSpan="2"/>
         <WebBrowser Name="Browser" HorizontalAlignment="Left" Height="496" Grid.RowSpan="3" VerticalAlignment="Top" Width="517" Margin="0,0,-13,0" Navigated="WebBrouserNavigated" Visibility="Hidden" Grid.ColumnSpan="2"/>
-        <TextBlock Name="PlayingStatus" FontSize="14" HorizontalAlignment="Left" Height="22" Margin="10,13,0,0" Grid.Row="3" TextWrapping="Wrap" VerticalAlignment="Top" Width="52" Grid.ColumnSpan="2"/>
-        <TextBlock Name="PlayingAudio"  FontSize="14" HorizontalAlignment="Left" Height="22" Margin="32,13,0,0" Grid.Row="3" TextWrapping="Wrap" VerticalAlignment="Top" Width="286" Grid.Column="1"/>
-        <Slider Name="Slider" HorizontalAlignment="Left" Height="21" Margin="405,13,0,0" Grid.Row="3" VerticalAlignment="Top" Width="66" ValueChanged="SliderValueChanged" Grid.Column="1"/>
-        <Button Name="PauseButton" Content="Play/Pause" HorizontalAlignment="Left" Height="25" Margin="327,9,0,0" Grid.Row="3" VerticalAlignment="Top" Width="73" Click="PauseResumePlaying" Grid.Column="1"/>
+
+
 
 
         <TabControl Grid.ColumnSpan="2">
@@ -57,6 +55,10 @@
 
                         <Button Content="Download audio" Click="LoadUserAudio" HorizontalAlignment="Left" Height="26" Margin="10,40,0,-43" VerticalAlignment="Top" Width="131" Grid.Row="1" Grid.Column="1"/>
                         <Button Name ="SearchButton" Content="Find audio" HorizontalAlignment="Left" Height="26" Margin="10,71,0,-74" Grid.Row="1" VerticalAlignment="Top" Width="131" Click="LoadSearchResults" Grid.Column="1"/>
+                        <Button Name="PauseButton" Content="Play/Pause" HorizontalAlignment="Left" Height="25" Margin="340,480,0,-482" Grid.Row="1" VerticalAlignment="Top" Width="73" Click="PauseResumePlaying" Grid.ColumnSpan="2"/>
+                        <TextBlock Name="PlayingStatus" FontSize="14" HorizontalAlignment="Left" Height="22" Margin="8,483,0,-482" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="49"/>
+                        <TextBlock Name="PlayingAudio"  FontSize="14" HorizontalAlignment="Left" Height="22" Margin="62,483,0,-482" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="273"/>
+                        <Slider Name="Slider" HorizontalAlignment="Left" Height="21" Margin="75,483,0,-481" Grid.Row="1" VerticalAlignment="Top" Width="66" ValueChanged="SliderValueChanged" Grid.Column="1"/>
 
                         <DataGrid IsReadOnly="True" AutoGenerateColumns="False" Name="Compositions" HorizontalAlignment="Left" Grid.Row="1" Width="505" MouseDoubleClick="PlayAudio" Margin="-1,143,-6,-403" Grid.ColumnSpan="2">
                             <DataGrid.Columns>
@@ -70,13 +72,23 @@
                                     </DataGridTextColumn.ElementStyle>
                                 </DataGridTextColumn>
                             </DataGrid.Columns>
-                        </DataGrid> 
+                        </DataGrid>
                     </Grid>
                 </TabItem.Content>
             </TabItem>
             <TabItem Header="Video" Margin="1,30,-1,-30"></TabItem>
-            
-            <TabItem Header="Photos" Margin="5,30,-5,-30"></TabItem>
+
+            <TabItem Header="Photos" Margin="5,30,-5,-30">
+                <TabItem.Content>
+                    <DataGrid IsReadOnly="True" AutoGenerateColumns="False" Name="Albums" HorizontalAlignment="Left" Grid.Row="1" Width="500" MouseDoubleClick="Albums_MouseDoubleClick" Margin="0,35,-2,-478" Grid.ColumnSpan="2" SelectionChanged="Albums_SelectionChanged">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Album" Binding="{Binding artist}"/>
+                            
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </TabItem.Content>
+            </TabItem>
+
         </TabControl>
     </Grid>
 </Controls:MetroWindow>
