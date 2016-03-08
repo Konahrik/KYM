@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         Title="Know Your Media" HorizontalAlignment="Center" Height="601" Width="512">
-    
+
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -25,6 +25,10 @@
             <MenuItem Header="About" Click="Help">
             </MenuItem>
         </Menu>
+
+        <Grid Margin="0,44,0,165" Grid.Row="2">
+            
+        </Grid>
         
         <TextBox Controls:TextBoxHelper.ClearTextButton="True"  Name="UserNameOrId" HorizontalAlignment="Left" Height="26" Margin="67,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="281" Grid.Row="1"/>
         <TextBlock HorizontalAlignment="Left" FontSize="14" Height="22" Margin="10,12,0,0" TextAlignment="Center" TextWrapping="Wrap" Text="User ID:" VerticalAlignment="Top" Width="52" Grid.Row="1"/>
@@ -36,30 +40,34 @@
         <Button Content="Download audio" Click="LoadUserAudio" HorizontalAlignment="Left" Height="26" Margin="357,10,0,0" VerticalAlignment="Top" Width="145" Grid.Row="1"/>
         <Button Name ="SearchButton" Content="Find audio" HorizontalAlignment="Left" Height="26" Margin="357,41,0,0" Grid.Row="1" VerticalAlignment="Top" Width="144" Click="LoadSearchResults"/>
 
-        <DataGrid IsReadOnly="True" AutoGenerateColumns="False" Name="Compositions" HorizontalAlignment="Left" Grid.Row="2" Width="504" MouseDoubleClick="PlayAudio" Margin="0,3,0,0">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Artist" Binding="{Binding artist}"/>
-                <DataGridTextColumn Header="Title" Binding="{Binding title}"/>
-                <DataGridTextColumn Header="Duration" Binding="{Binding duration}">
-                    <DataGridTextColumn.ElementStyle>
-                        <Style TargetType="TextBlock">
-                            <Setter Property="HorizontalAlignment" Value="Center" />
-                        </Style>
-                    </DataGridTextColumn.ElementStyle>
-                </DataGridTextColumn>
-            </DataGrid.Columns>
-        </DataGrid>
-        
-        <ProgressBar Name="ProgressBar" HorizontalAlignment="Left" Height="22" Grid.Row="4" VerticalAlignment="Top" Width="517" Margin="0,1,-13,0"/>
+        <ProgressBar Name="ProgressBar" HorizontalAlignment="Left" Height="22" Grid.Row="4" VerticalAlignment="Top" Width="504" Margin="0,1,0,0"/>
         <WebBrowser Name="Browser" HorizontalAlignment="Left" Height="496" Grid.RowSpan="3" VerticalAlignment="Top" Width="517" Margin="0,0,-13,0" Navigated="WebBrouserNavigated" Visibility="Hidden"/>
         <TextBlock Name="PlayingStatus" FontSize="14" HorizontalAlignment="Left" Height="22" Margin="10,13,0,0" Grid.Row="3" TextWrapping="Wrap" VerticalAlignment="Top" Width="52"/>
         <TextBlock Name="PlayingAudio"  FontSize="14" HorizontalAlignment="Left" Height="22" Margin="62,13,0,0" Grid.Row="3" TextWrapping="Wrap" VerticalAlignment="Top" Width="286"/>
         <Slider Name="Slider" HorizontalAlignment="Left" Height="21" Margin="435,13,0,0" Grid.Row="3" VerticalAlignment="Top" Width="66" ValueChanged="SliderValueChanged"/>
         <Button Name="PauseButton" Content="Play/Pause" HorizontalAlignment="Left" Height="25" Margin="357,9,0,0" Grid.Row="3" VerticalAlignment="Top" Width="73" Click="PauseResumePlaying"/>
-        
+
+
         <TabControl>
             <TabItem Header="Music" Margin="0,31,0,-30">
-                ...
+
+                <TabItem.Content>
+                    <DataGrid IsReadOnly="True" AutoGenerateColumns="False" Name="Compositions" HorizontalAlignment="Left" Grid.Row="2" Width="502" MouseDoubleClick="PlayAudio" Margin="-2,146,-2,-437">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Artist" Binding="{Binding artist}"/>
+                            <DataGridTextColumn Header="Title" Binding="{Binding title}"/>
+                            <DataGridTextColumn Header="Duration" Binding="{Binding duration}">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType="TextBlock">
+                                        <Setter Property="HorizontalAlignment" Value="Center" />
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+                </TabItem.Content>
+
             </TabItem>
             <TabItem Header="Video" Margin="1,30,-1,-30"></TabItem>
             <TabItem Header="Photos" Margin="4,32,-4,-30"></TabItem>
