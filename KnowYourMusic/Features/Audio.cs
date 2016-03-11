@@ -59,7 +59,7 @@ namespace KnowYourMusic.Features
                 {
                     path = path + "\\";
                 }
-                var fileName = composition.artist + " – " + composition.title;
+                var fileName = composition.Artist + " – " + composition.AudioTitle;
                 if (fileName.Length > 40)
                 {
                     fileName = fileName.Substring(0, 40);
@@ -76,7 +76,7 @@ namespace KnowYourMusic.Features
                     {
                         ProgressBar.Value = 0;
                     };
-                    await client.DownloadFileTaskAsync(new Uri(composition.url), path + fileName + ".mp3");
+                    await client.DownloadFileTaskAsync(new Uri(composition.AudioUrl), path + fileName + ".mp3");
                 }
             }
             catch (Exception)

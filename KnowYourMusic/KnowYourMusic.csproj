@@ -90,8 +90,10 @@
     <Compile Include="Details\VkAccount.cs" />
     <Compile Include="Details\VkAudio.cs" />
     <Compile Include="Details\VkUsers.cs" />
+    <Compile Include="Details\VkVideo.cs" />
     <Compile Include="Features\Audio.cs" />
     <Compile Include="Features\General.cs" />
+    <Compile Include="Features\Video.cs" />
     <Compile Include="Help.xaml.cs">
       <DependentUpon>Help.xaml</DependentUpon>
     </Compile>

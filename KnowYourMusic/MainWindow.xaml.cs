@@ -31,7 +31,8 @@ namespace KnowYourMusic
             Boolean PlaySound(string lpszName, int hModule, int dwFlags);
 
         public WMPLib.WindowsMediaPlayer WMP = new WMPLib.WindowsMediaPlayer();
-        public List<AudioResponse> AllResults { get; private set; }
+        public List<AudioResponse> AllAudioResults { get; private set; }
+        public List<VideoResponse> AllVideoResults { get; private set; }
 
         public MainWindow()
         {
@@ -69,16 +70,16 @@ namespace KnowYourMusic
                 userId = UserNameOrId.Text;
             var users = General.GetUsersInfo(userId);
             Title = String.Format("Audio files of {0} {1}", users.response[0].first_name, users.response[0].last_name);
-            AllResults = Audio.LoadAudio(userId);
-            Compositions.ItemsSource = AllResults;
+            AllAudioResults = Audio.LoadAudio(userId);
+            Compositions.ItemsSource = AllAudioResults;
         }
 
         private void LoadSearchResults(object sender, RoutedEventArgs e)
         {
             if (SearchRequest.Text != "")
             {
-                AllResults = Audio.SearchAudio(SearchRequest.Text);
-                Compositions.ItemsSource = AllResults;
+                AllAudioResults = Audio.SearchAudio(SearchRequest.Text);
+                Compositions.ItemsSource = AllAudioResults;
                 Title = String.Format("Music search results for '{0}'", SearchRequest.Text);
                 return;
             }
@@ -91,10 +92,10 @@ namespace KnowYourMusic
                 AudioResponse selected = (AudioResponse)Compositions.SelectedItem;
                 if (selected != null)
                 {
-                    WMP.URL = selected.url;
+                    WMP.URL = selected.AudioUrl;
                     WMP.controls.play();
                     PlayingStatus.Text = "Playing:";
-                    PlayingAudio.Text = String.Format(selected.artist + " – " + selected.title);
+                    PlayingAudio.Text = String.Format(selected.Artist + " – " + selected.AudioTitle);
 
                 }
             }
@@ -179,28 +180,44 @@ namespace KnowYourMusic
         private void FilterTextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
         {
             var str = FilterRequest.Text.ToLower();
-            if (AllResults != null && AllResults.Any())
+            if (AllAudioResults != null && AllAudioResults.Any())
             {
                 if (String.IsNullOrEmpty(str))
                 {
-                    Compositions.ItemsSource = AllResults;
+                    Compositions.ItemsSource = AllAudioResults;
                     return;
                 }
                 Compositions.ItemsSource =
-                    AllResults.Where(
+                    AllAudioResults.Where(
                         x =>
-                            x.artist.ToLower().IndexOf(str, StringComparison.Ordinal) >= 0 ||
-                            x.title.ToLower().IndexOf(str, StringComparison.Ordinal) > 0);
+                            x.Artist.ToLower().IndexOf(str, StringComparison.Ordinal) >= 0 ||
+                            x.AudioTitle.ToLower().IndexOf(str, StringComparison.Ordinal) > 0);
             }
         }
-        private void Albums_MouseDoubleClick(object sender, MouseButtonEventArgs e)
-        {
 
+        private void LoadUserVideo(object sender, RoutedEventArgs e)
+        {
+            string userId;
+            if (UserNameOrIdForVideo.Text == "")
+                userId = VkAccount.UserId;
+            else
+                userId = UserNameOrIdForVideo.Text;
+
+            var users = General.GetUsersInfo(userId);
+            Title = String.Format("Video files of {0} {1}", users.response[0].first_name, users.response[0].last_name);
+            AllVideoResults = Video.LoadVideo(userId);
+            Videos.ItemsSource = AllVideoResults;
         }
 
-        private void Albums_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void LoadSearchResultsForVideo(object sender, RoutedEventArgs e)
         {
-
+            if (SearchRequestForVideo.Text != "")
+            {
+                AllVideoResults = Video.SearchVideo(SearchRequestForVideo.Text);
+                Videos.ItemsSource = AllVideoResults;
+                Title = String.Format("Video search results for '{0}'", SearchRequestForVideo.Text);
+                return;
+            }
         }
     }
 }

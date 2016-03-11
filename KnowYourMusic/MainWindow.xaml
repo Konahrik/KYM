@@ -10,9 +10,7 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="70*"/>
-            <RowDefinition Height="96*"/>
-            <RowDefinition Height="337*"/>
-            <RowDefinition Height="44*"/>
+            <RowDefinition Height="477*"/>
             <RowDefinition Height="23*"/>
         </Grid.RowDefinitions>
         <Menu Height="30" VerticalAlignment="Top">
@@ -26,15 +24,14 @@
             </MenuItem>
         </Menu>
 
-        <ProgressBar Name="ProgressBar" HorizontalAlignment="Left" Height="22" Grid.Row="4" VerticalAlignment="Top" Width="504" Margin="0,1,-7,0"/>
-        <WebBrowser Name="Browser" HorizontalAlignment="Left" Height="496" Grid.RowSpan="3" VerticalAlignment="Top" Width="517" Margin="0,0,-20,0" Navigated="WebBrouserNavigated" Visibility="Hidden"/>
+        <ProgressBar Name="ProgressBar" HorizontalAlignment="Left" Height="22" Grid.Row="2" VerticalAlignment="Top" Width="504" Margin="0,1,-7,0"/>
+        <WebBrowser Name="Browser" HorizontalAlignment="Left" Height="496" Grid.RowSpan="2" VerticalAlignment="Top" Width="517" Margin="0,0,-20,0" Navigated="WebBrouserNavigated" Visibility="Hidden"/>
 
 
 
 
         <TabControl>
             <TabItem Header="Music" Margin="0,30,0,-30">
-
                 <TabItem.Content>
                     <Grid Margin="0,-31,0,10" Grid.RowSpan="2" RenderTransformOrigin="0.534,0.387">
                         <Grid.RowDefinitions>
@@ -62,9 +59,9 @@
 
                         <DataGrid IsReadOnly="True" AutoGenerateColumns="False" Name="Compositions" HorizontalAlignment="Left" Grid.Row="2" Width="486" MouseDoubleClick="PlayAudio" Margin="-1,110,0,-447" Grid.ColumnSpan="2">
                             <DataGrid.Columns>
-                                <DataGridTextColumn Header="Artist" Binding="{Binding artist}"/>
-                                <DataGridTextColumn Header="Title" Binding="{Binding title}"/>
-                                <DataGridTextColumn Header="Duration" Binding="{Binding duration}">
+                                <DataGridTextColumn Header="Artist" Binding="{Binding Artist}"/>
+                                <DataGridTextColumn Header="Title" Binding="{Binding AudioTitle}"/>
+                                <DataGridTextColumn Header="Duration" Binding="{Binding AudioDuration}">
                                     <DataGridTextColumn.ElementStyle>
                                         <Style TargetType="TextBlock">
                                             <Setter Property="HorizontalAlignment" Value="Center" />
@@ -76,11 +73,46 @@
                     </Grid>
                 </TabItem.Content>
             </TabItem>
-            <TabItem Header="Video" Margin="1,30,-1,-30"></TabItem>
+
+            <TabItem Header="Video" Margin="4,31,-4,-31" Height="39" VerticalAlignment="Top">
+                <TabItem.Content>
+                    <Grid Margin="0,-31,0,10" Grid.RowSpan="2" RenderTransformOrigin="0.534,0.387">
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition Height="0*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="353*"/>
+                            <ColumnDefinition Width="151*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBox Controls:TextBoxHelper.ClearTextButton="True"  Name="UserNameOrIdForVideo" HorizontalAlignment="Left" Height="26" Margin="62,17,0,-43" TextWrapping="Wrap" VerticalAlignment="Top" Width="273" Grid.Row="2"/>
+                        <TextBlock HorizontalAlignment="Left" FontSize="14" Height="22" Margin="8,19,0,-41" TextAlignment="Center" TextWrapping="Wrap" Text="User ID:" VerticalAlignment="Top" Width="52" Grid.Row="2"/>
+                        <TextBox Controls:TextBoxHelper.ClearTextButton="True"  Name="SearchRequestForVideo" HorizontalAlignment="Left" Height="26" Margin="62,48,0,-74" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="273"/>
+                        <TextBlock HorizontalAlignment="Left" FontSize="14" Margin="10,50,0,-74" Grid.Row="2" TextWrapping="Wrap" Text="Search:" VerticalAlignment="Top" Height="24" Width="52" RenderTransformOrigin="0.692,0.44"/>
+                        <Button Content="Download video" Click="LoadUserVideo" HorizontalAlignment="Left" Height="26" Margin="340,17,0,-43" VerticalAlignment="Top" Width="145" Grid.Row="2" Grid.ColumnSpan="2"/>
+                        <Button Name ="SearchVideoButton" Click="LoadSearchResultsForVideo" Content="Find video" HorizontalAlignment="Left" Height="26" Margin="340,48,0,-74" Grid.Row="2" VerticalAlignment="Top" Width="145" Grid.ColumnSpan="2"/>
+
+                        <DataGrid IsReadOnly="True" AutoGenerateColumns="False" Name="Videos" HorizontalAlignment="Left" Grid.Row="2" Width="486" MouseDoubleClick="PlayAudio" Margin="-1,79,0,-490" Grid.ColumnSpan="2">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Title" Binding="{Binding VideoTitle}"/>
+                                <DataGridTextColumn Header="Duration" Binding="{Binding VideoDuration}">
+                                    <DataGridTextColumn.ElementStyle>
+                                        <Style TargetType="TextBlock">
+                                            <Setter Property="HorizontalAlignment" Value="Center" />
+                                        </Style>
+                                    </DataGridTextColumn.ElementStyle>
+                                </DataGridTextColumn>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </Grid>
+                </TabItem.Content>
+            </TabItem>
 
             <TabItem Header="Photos" Margin="5,30,-5,-30">
                 <TabItem.Content>
-                    <DataGrid IsReadOnly="True" AutoGenerateColumns="False" Name="Albums" HorizontalAlignment="Left" Grid.Row="1" Width="500" MouseDoubleClick="Albums_MouseDoubleClick" Margin="0,35,-2,-478" Grid.ColumnSpan="2" SelectionChanged="Albums_SelectionChanged">
+                    <DataGrid IsReadOnly="True" AutoGenerateColumns="False" Name="Albums" HorizontalAlignment="Left" Grid.Row="1" Width="500" Margin="0,35,-2,-478" Grid.ColumnSpan="2">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Album" Binding="{Binding artist}"/>
 

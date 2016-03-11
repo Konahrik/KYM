@@ -15,13 +15,14 @@ namespace KnowYourMusic.Details
     public class AudioResponse
     {
         [JsonProperty("artist")]
-        public string artist { get; set; }
+        public string Artist { get; set; }
         [JsonProperty("title")]
-        public string title { get; set; }
+        public string AudioTitle { get; set; }
         [JsonConverter(typeof(SecondsToStringConverter))]
-        public string duration { get; set; }
+        [JsonProperty("duration")]
+        public string AudioDuration { get; set; }
         [JsonProperty("url")]
-        public string url { get; set; }
+        public string AudioUrl { get; set; }
     }
     class SecondsToStringConverter : JsonConverter
 {
