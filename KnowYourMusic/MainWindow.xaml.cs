@@ -250,11 +250,6 @@ namespace KnowYourMusic
             }
             catch (Exception) { }
         }
-
-        private void Tabs_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
     }
 }
 
