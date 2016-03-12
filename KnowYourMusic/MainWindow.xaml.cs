@@ -45,6 +45,21 @@ namespace KnowYourMusic
                             ConfigurationManager.AppSettings["VKScope"],
                             ConfigurationManager.AppSettings["VKRedirectUri"]));
         }
+
+        private void OnSelectionChanged(Object sender, SelectionChangedEventArgs args)
+        {
+            if (Tabs.SelectedItem == VideoTab)
+            {
+                SaveAll.IsEnabled = false;
+                SaveSelected.IsEnabled = false;
+            }
+            else
+            {
+                SaveAll.IsEnabled = true;
+                SaveSelected.IsEnabled = true;
+            }
+        }
+
         private void WebBrouserNavigated(object sender, NavigationEventArgs e)
         {
             var clearUriFragment = e.Uri.Fragment.Replace("#", "").Trim();
@@ -234,6 +249,11 @@ namespace KnowYourMusic
                 }
             }
             catch (Exception) { }
+        }
+
+        private void Tabs_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

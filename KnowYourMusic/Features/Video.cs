@@ -40,37 +40,5 @@ namespace KnowYourMusic.Features
             var result = JsonConvert.DeserializeObject<VkVideo>(responseText);
             return result.response;
         }
-        //public static async Task DownloadVideo(VideoResponse video, String path, ProgressBar ProgressBar)
-        //{
-        //    try
-        //    {
-        //        if (path[path.Length - 1] != '\\')
-        //        {
-        //            path = path + "\\";
-        //        }
-        //        var fileName = video.VideoTitle;
-        //        if (fileName.Length > 40)
-        //        {
-        //            fileName = fileName.Substring(0, 40);
-        //        }
-        //        fileName = fileName.Replace(":", "").Replace("\\", "").Replace("/", "").Replace("*", "").Replace("?", "").Replace("\"", "");
-        //        using (var client = new WebClient())
-        //        {
-
-        //            client.DownloadProgressChanged += (o, args) =>
-        //            {
-        //                ProgressBar.Value = args.ProgressPercentage;
-        //            };
-        //            client.DownloadFileCompleted += (o, args) =>
-        //            {
-        //                ProgressBar.Value = 0;
-        //            };
-        //            await client.DownloadFileTaskAsync(new Uri(video.VideoPlayer), path + fileName + ".mp4");
-        //        }
-        //    }
-        //    catch (Exception)
-        //    {
-        //    }
-        //}
     }
 }
