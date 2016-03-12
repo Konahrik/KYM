@@ -52,9 +52,9 @@
 
                         <Button Content="Download audio" Click="LoadUserAudio" HorizontalAlignment="Left" Height="26" Margin="340,17,0,-43" VerticalAlignment="Top" Width="145" Grid.Row="2" Grid.ColumnSpan="2"/>
                         <Button Name ="SearchButton" Content="Find audio" HorizontalAlignment="Left" Height="26" Margin="340,48,0,-74" Grid.Row="2" VerticalAlignment="Top" Width="145" Click="LoadSearchResults" Grid.ColumnSpan="2"/>
-                        <Button Name="PauseButton" Content="Play/Pause" HorizontalAlignment="Left" Height="25" Margin="340,457,0,-482" Grid.Row="2" VerticalAlignment="Top" Width="73" Click="PauseResumePlaying" Grid.ColumnSpan="2"/>
-                        <TextBlock Name="PlayingStatus" FontSize="14" HorizontalAlignment="Left" Height="22" Margin="8,460,0,-482" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="49"/>
-                        <TextBlock Name="PlayingAudio"  FontSize="14" HorizontalAlignment="Left" Height="22" Margin="62,460,0,-482" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="273"/>
+                        <Button Name="PauseButton" Content="Play/Pause" HorizontalAlignment="Left" Height="26" Margin="340,457,0,-483" Grid.Row="2" VerticalAlignment="Top" Width="73" Click="PauseResumePlaying" Grid.ColumnSpan="2"/>
+                        <TextBlock Name="PlayingStatus" FontSize="14" HorizontalAlignment="Left" Height="26" Margin="8,457,0,-483" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="49"/>
+                        <TextBlock Name="PlayingAudio"  FontSize="14" HorizontalAlignment="Left" Height="26" Margin="62,457,0,-483" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="273"/>
                         <Slider Name="Slider" HorizontalAlignment="Left" Height="21" Margin="75,460,0,-481" Grid.Row="2" VerticalAlignment="Top" Width="66" ValueChanged="SliderValueChanged" Grid.Column="1"/>
 
                         <DataGrid IsReadOnly="True" AutoGenerateColumns="False" Name="Compositions" HorizontalAlignment="Left" Grid.Row="2" Width="486" MouseDoubleClick="PlayAudio" Margin="-1,110,0,-447" Grid.ColumnSpan="2">
@@ -94,7 +94,7 @@
                         <Button Content="Download video" Click="LoadUserVideo" HorizontalAlignment="Left" Height="26" Margin="340,17,0,-43" VerticalAlignment="Top" Width="145" Grid.Row="2" Grid.ColumnSpan="2"/>
                         <Button Name ="SearchVideoButton" Click="LoadSearchResultsForVideo" Content="Find video" HorizontalAlignment="Left" Height="26" Margin="340,48,0,-74" Grid.Row="2" VerticalAlignment="Top" Width="145" Grid.ColumnSpan="2"/>
 
-                        <DataGrid IsReadOnly="True" AutoGenerateColumns="False" Name="Videos" HorizontalAlignment="Left" Grid.Row="2" Width="486" MouseDoubleClick="PlayAudio" Margin="-1,79,0,-490" Grid.ColumnSpan="2">
+                        <DataGrid IsReadOnly="True" AutoGenerateColumns="False" Name="Videos" HorizontalAlignment="Left" Grid.Row="2" Width="486" MouseDoubleClick="PlayVideo" Margin="-1,79,0,-490" Grid.ColumnSpan="2">
                             <DataGrid.Columns>
                                 <DataGridTextColumn Header="Title" Binding="{Binding VideoTitle}"/>
                                 <DataGridTextColumn Header="Duration" Binding="{Binding VideoDuration}">
@@ -112,7 +112,7 @@
 
             <TabItem Header="Photos" Margin="5,30,-5,-30">
                 <TabItem.Content>
-                    <DataGrid IsReadOnly="True" AutoGenerateColumns="False" Name="Albums" HorizontalAlignment="Left" Grid.Row="1" Width="500" Margin="0,35,-2,-478" Grid.ColumnSpan="2">
+                    <DataGrid IsReadOnly="True" AutoGenerateColumns="False" Name="Albums" HorizontalAlignment="Left" Grid.Row="1" Width="485" Margin="0,35,0,-478" Grid.ColumnSpan="2">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Album" Binding="{Binding artist}"/>
 

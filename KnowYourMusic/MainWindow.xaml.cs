@@ -219,5 +219,21 @@ namespace KnowYourMusic
                 return;
             }
         }
+
+        private void PlayVideo(object sender, MouseButtonEventArgs e)
+        {
+            try
+            {
+                VideoResponse selected = (VideoResponse)Videos.SelectedItem;
+                if (selected != null)
+                {
+                    var VideoPlayer = new VideoPlayer();
+                    VideoPlayer.Show();
+                    VideoPlayer.PlayerBrowser.Navigate(String.Format(selected.VideoPlayer));
+                    VideoPlayer.Title = String.Format(selected.VideoTitle);
+                }
+            }
+            catch (Exception) { }
+        }
     }
 }
