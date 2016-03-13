@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+VisualStudioVersion = 12.0.30501.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KnowYourMedia", "KnowYourMusic\KnowYourMedia.csproj", "{025F6FC0-3D55-405F-BB73-50398720A47C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KnowYourMusic.Test", "KnowYourMusic.Test\KnowYourMusic.Test.csproj", "{57B2A3CF-0A13-47C3-9CE4-20209C23B189}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,6 +26,16 @@ Global
 		{025F6FC0-3D55-405F-BB73-50398720A47C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{025F6FC0-3D55-405F-BB73-50398720A47C}.SingleImage|Any CPU.ActiveCfg = Debug|Any CPU
 		{025F6FC0-3D55-405F-BB73-50398720A47C}.SingleImage|Any CPU.Build.0 = Debug|Any CPU
+		{57B2A3CF-0A13-47C3-9CE4-20209C23B189}.CD_ROM|Any CPU.ActiveCfg = Release|Any CPU
+		{57B2A3CF-0A13-47C3-9CE4-20209C23B189}.CD_ROM|Any CPU.Build.0 = Release|Any CPU
+		{57B2A3CF-0A13-47C3-9CE4-20209C23B189}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57B2A3CF-0A13-47C3-9CE4-20209C23B189}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57B2A3CF-0A13-47C3-9CE4-20209C23B189}.DVD-5|Any CPU.ActiveCfg = Debug|Any CPU
+		{57B2A3CF-0A13-47C3-9CE4-20209C23B189}.DVD-5|Any CPU.Build.0 = Debug|Any CPU
+		{57B2A3CF-0A13-47C3-9CE4-20209C23B189}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57B2A3CF-0A13-47C3-9CE4-20209C23B189}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57B2A3CF-0A13-47C3-9CE4-20209C23B189}.SingleImage|Any CPU.ActiveCfg = Release|Any CPU
+		{57B2A3CF-0A13-47C3-9CE4-20209C23B189}.SingleImage|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
