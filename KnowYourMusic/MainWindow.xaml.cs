@@ -33,6 +33,7 @@ namespace KnowYourMusic
         public WMPLib.WindowsMediaPlayer WMP = new WMPLib.WindowsMediaPlayer();
         public List<AudioResponse> AllAudioResults { get; private set; }
         public List<VideoResponse> AllVideoResults { get; private set; }
+        public List<PhotoAlbumsResponse> AllPhotoAlbumsResults { get; private set; }
 
         public MainWindow()
         {
@@ -249,6 +250,20 @@ namespace KnowYourMusic
                 }
             }
             catch (Exception) { }
+        }
+
+        private void LoadUserPhotoAlbums(object sender, RoutedEventArgs e)
+        {
+            string userId;
+            if (UserNameOrIdForPhotoAlbums.Text == "")
+                userId = VkAccount.UserId;
+            else
+                userId = UserNameOrIdForPhotoAlbums.Text;
+
+            var users = General.GetUsersInfo(userId);
+            Title = String.Format("Photos of {0} {1}", users.response[0].first_name, users.response[0].last_name);
+            AllPhotoAlbumsResults = PhotoAlbums.LoadPhotoAlbums(userId);
+            Albums.ItemsSource = AllPhotoAlbumsResults;
         }
     }
 }
