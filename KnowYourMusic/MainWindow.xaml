@@ -107,17 +107,40 @@
                 </TabItem.Content>
             </TabItem>
 
-            <TabItem Header="Photos" Name="PhotoTab" Margin="5,30,-5,-30">
+            <TabItem Header="Photos" Name="PhotoTab" Margin="5,31,-5,-31">
                 <TabItem.Content>
-                    <DataGrid IsReadOnly="True" AutoGenerateColumns="False" Name="Albums" HorizontalAlignment="Left" Grid.Row="1" Width="485" Margin="0,35,0,-478" Grid.ColumnSpan="2">
-                        <DataGrid.Columns>
-                            <DataGridTextColumn Header="Album" Binding="{Binding artist}"/>
 
-                        </DataGrid.Columns>
-                    </DataGrid>
+                    <Grid Margin="0,-31,0,10" Grid.RowSpan="2" RenderTransformOrigin="0.534,0.387">
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition Height="0*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="353*"/>
+                            <ColumnDefinition Width="151*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBox Controls:TextBoxHelper.ClearTextButton="True"  Name="UserNameOrIdForPhotoAlbums" HorizontalAlignment="Left" Height="26" Margin="62,17,0,-43" TextWrapping="Wrap" VerticalAlignment="Top" Width="273" Grid.Row="2"/>
+                        <TextBlock HorizontalAlignment="Left" FontSize="14" Height="22" Margin="8,19,0,-41" TextAlignment="Center" TextWrapping="Wrap" Text="User ID:" VerticalAlignment="Top" Width="52" Grid.Row="2"/>
+                        <Button Content="Download Albums" Click="LoadUserPhotoAlbums" HorizontalAlignment="Left" Height="26" Margin="340,17,0,-43" VerticalAlignment="Top" Width="145" Grid.Row="2" Grid.ColumnSpan="2"/>
+
+
+                        <DataGrid IsReadOnly="True" AutoGenerateColumns="False" Name="Albums" HorizontalAlignment="Left" Grid.Row="2" Width="485" Margin="0,48,0,-478" Grid.ColumnSpan="2">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Album" Binding="{Binding PhotoAlbumTitle}"/>
+                                <DataGridTextColumn Header="Size" Binding="{Binding PhotoAlbumSize}">
+                                    <DataGridTextColumn.ElementStyle>
+                                        <Style TargetType="TextBlock">
+                                            <Setter Property="HorizontalAlignment" Value="Center" />
+                                        </Style>
+                                    </DataGridTextColumn.ElementStyle>
+                                </DataGridTextColumn>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </Grid>
                 </TabItem.Content>
             </TabItem>
-
         </TabControl>
     </Grid>
 </Controls:MetroWindow>
