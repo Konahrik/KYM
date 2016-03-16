@@ -2,7 +2,8 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
-        Title="VideoPlayer" Height="347" Width="505">
+        Title="VideoPlayer" Height="347" Width="505"
+                          ResizeMode="CanResizeWithGrip">
     <Grid>
         <WebBrowser Name="PlayerBrowser" Height="317" VerticalAlignment="Top" Margin="0,0,0,-1"/>
     </Grid>
