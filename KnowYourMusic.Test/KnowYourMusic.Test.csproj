@@ -57,6 +57,7 @@
   <ItemGroup>
     <Compile Include="GeneralTest.cs" />
     <Compile Include="AudioTest.cs" />
+    <Compile Include="PhotoTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="VideoTest.cs" />
   </ItemGroup>
