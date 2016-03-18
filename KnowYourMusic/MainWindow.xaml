@@ -31,7 +31,7 @@
         </Menu>
 
         <ProgressBar Name="ProgressBar" HorizontalAlignment="Left" Height="22" Grid.Row="2" VerticalAlignment="Top" Width="506" Margin="0,1,-9,0"/>
-        <WebBrowser Name="Browser" HorizontalAlignment="Left" Height="496" Grid.RowSpan="2" VerticalAlignment="Top" Width="517" Margin="0,0,-20,0" Navigated="WebBrouserNavigated" Visibility="Hidden"/>
+        <WebBrowser Name="Browser" HorizontalAlignment="Left" Height="600" Grid.RowSpan="2" VerticalAlignment="Top" Width="505" Margin="0,0,-20,0" Navigated="WebBrouserNavigated" Visibility="Hidden"/>
 
         <TabControl Name="Tabs" SelectionChanged="OnSelectionChanged" >
             <TabItem Header="Music" Name="MusicTab" Margin="0,31,0,-31">
