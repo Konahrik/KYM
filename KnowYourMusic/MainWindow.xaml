@@ -7,7 +7,8 @@
         Height="601" Width="505"
         GlowBrush="Black"
         BorderThickness="0"
-        WindowStartupLocation="CenterScreen">
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="CanMinimize">
 
     <Grid>
         <Grid.ColumnDefinitions>

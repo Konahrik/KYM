@@ -6,7 +6,8 @@
         Height="577" Width="400"
         BorderThickness="0" 
         GlowBrush="Black"
-        WindowStartupLocation="CenterScreen">
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="CanMinimize">
 
     <Grid Height="547" VerticalAlignment="Top" Margin="0,0,0,-1">
         <Grid.ColumnDefinitions>
