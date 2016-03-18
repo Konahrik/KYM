@@ -178,7 +178,7 @@ namespace KnowYourMusic
         private void Help(object sender, RoutedEventArgs e)
         {
             var Help = new Help();
-            Help.Show();
+            Help.ShowDialog();
         }
 
         private void Exit(object sender, RoutedEventArgs e)

@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using MahApps.Metro.Controls;
+using System.Windows.Navigation;
 
 namespace KnowYourMusic
 {
@@ -23,6 +24,11 @@ namespace KnowYourMusic
         public Help()
         {
             InitializeComponent();
+        }
+
+        private void Back_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close(); 
         }
     }
 }
