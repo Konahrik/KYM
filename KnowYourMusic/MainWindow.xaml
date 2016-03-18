@@ -57,7 +57,7 @@
                         <Button Name ="SearchButton" Content="Find audio" HorizontalAlignment="Left" Height="26" Margin="340,48,0,-74" Grid.Row="2" VerticalAlignment="Top" Width="145" Click="LoadSearchResults" Grid.ColumnSpan="2"/>
                         <Button Name="PauseButton" Content="Play/Pause" HorizontalAlignment="Left" Height="26" Margin="340,457,0,-483" Grid.Row="2" VerticalAlignment="Top" Width="73" Click="PauseResumePlaying" Grid.ColumnSpan="2"/>
                         <TextBlock Name="PlayingStatus" FontSize="14" HorizontalAlignment="Left" Height="26" Margin="8,457,0,-483" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="49"/>
-                        <TextBlock Name="PlayingAudio"  FontSize="14" HorizontalAlignment="Left" Height="26" Margin="62,457,0,-483" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="273"/>
+                        <TextBlock Name="PlayingAudio"  FontSize="14" HorizontalAlignment="Left" Height="26" Margin="62,457,0,-483" Grid.Row="2" TextWrapping="NoWrap" VerticalAlignment="Top" Width="273"/>
                         <Slider Name="Slider" HorizontalAlignment="Left" Height="21" Margin="75,460,0,-481" Grid.Row="2" VerticalAlignment="Top" Width="66" ValueChanged="SliderValueChanged" Grid.Column="1"/>
 
                         <DataGrid IsReadOnly="True" AutoGenerateColumns="False" Name="Compositions" HorizontalAlignment="Left" Grid.Row="2" Width="486" MouseDoubleClick="PlayAudio" Margin="-1,110,0,-447" Grid.ColumnSpan="2">
