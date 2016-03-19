@@ -151,42 +151,87 @@ namespace KnowYourMusic
             }
         }
 
-        private async void SaveSelectedAudio(object sender, RoutedEventArgs e)
+        private async void SaveSelectedItem(object sender, RoutedEventArgs e)
         {
-            var selectedBuf = Compositions.SelectedItems;
-            var selected = selectedBuf.Cast<AudioResponse>().ToList();
-            if (selected.Count > 0)
+            if (Tabs.SelectedItem == MusicTab)
             {
-                var dialog = new CommonOpenFileDialog { IsFolderPicker = true };
-                var result = dialog.ShowDialog();
-
-                if (result == CommonFileDialogResult.Ok)
+                var selectedBuf = Compositions.SelectedItems;
+                var selected = selectedBuf.Cast<AudioResponse>().ToList();
+                if (selected.Count > 0)
                 {
-                    var path = dialog.FileName;
-                    foreach (AudioResponse composition in selected)
+                    var dialog = new CommonOpenFileDialog { IsFolderPicker = true };
+                    var result = dialog.ShowDialog();
+
+                    if (result == CommonFileDialogResult.Ok)
                     {
-                        await Audio.DownloadAudio(composition, path, ProgressBar);
+                        var path = dialog.FileName;
+                        foreach (AudioResponse composition in selected)
+                        {
+                            await Audio.DownloadAudio(composition, path, ProgressBar);
+                        }
+                    }
+                }
+            }
+            if (Tabs.SelectedItem == PhotoTab)
+            {
+                var selectedBuf = photoListBox.SelectedItems;
+                var selected = selectedBuf.Cast<PhotoItem>().ToList();
+                if (selected.Count > 0)
+                {
+                    var dialog = new CommonOpenFileDialog { IsFolderPicker = true };
+                    var result = dialog.ShowDialog();
+
+                    if (result == CommonFileDialogResult.Ok)
+                    {
+                        var path = dialog.FileName;
+                        foreach (PhotoItem photo in selected)
+                        {
+                            await Photos.DownloadPhoto(photo, path, ProgressBar);
+                        }
                     }
                 }
             }
         }
 
-        private async void SaveAllAudio(object sender, RoutedEventArgs e)
+        private async void SaveAllItems(object sender, RoutedEventArgs e)
         {
-            var selectedBuf = Compositions.ItemsSource;
-            var all = selectedBuf.Cast<AudioResponse>().ToList();
-            if (all.Any())
+            if (Tabs.SelectedItem == MusicTab)
             {
-                var dialog = new CommonOpenFileDialog();
-                dialog.IsFolderPicker = true;
-                CommonFileDialogResult result = dialog.ShowDialog();
-
-                if (result == CommonFileDialogResult.Ok)
+                var selectedBuf = Compositions.ItemsSource;
+                var all = selectedBuf.Cast<AudioResponse>().ToList();
+                if (all.Any())
                 {
-                    var path = dialog.FileName;
-                    foreach (AudioResponse composition in all)
+                    var dialog = new CommonOpenFileDialog();
+                    dialog.IsFolderPicker = true;
+                    CommonFileDialogResult result = dialog.ShowDialog();
+
+                    if (result == CommonFileDialogResult.Ok)
                     {
-                        await Audio.DownloadAudio(composition, path, ProgressBar);
+                        var path = dialog.FileName;
+                        foreach (AudioResponse composition in all)
+                        {
+                            await Audio.DownloadAudio(composition, path, ProgressBar);
+                        }
+                    }
+                }
+            }
+            if (Tabs.SelectedItem == PhotoTab)
+            {
+                var selectedBuf = photoListBox.ItemsSource;
+                var all = selectedBuf.Cast<PhotoItem>().ToList();
+                if (all.Any())
+                {
+                    var dialog = new CommonOpenFileDialog();
+                    dialog.IsFolderPicker = true;
+                    CommonFileDialogResult result = dialog.ShowDialog();
+
+                    if (result == CommonFileDialogResult.Ok)
+                    {
+                        var path = dialog.FileName;
+                        foreach (PhotoItem photo in all)
+                        {
+                            await Photos.DownloadPhoto(photo, path, ProgressBar);
+                        }
                     }
                 }
             }

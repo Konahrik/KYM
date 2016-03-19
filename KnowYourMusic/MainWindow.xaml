@@ -21,8 +21,8 @@
         </Grid.RowDefinitions>
         <Menu Height="30" VerticalAlignment="Top">
             <MenuItem Header="File">
-                <MenuItem Name="SaveSelected" Header="Save selected"  Click="SaveSelectedAudio"></MenuItem>
-                <MenuItem Name="SaveAll" Header="Save all" Click="SaveAllAudio"></MenuItem>
+                <MenuItem Name="SaveSelected" Header="Save selected"  Click="SaveSelectedItem"></MenuItem>
+                <MenuItem Name="SaveAll" Header="Save all" Click="SaveAllItems"></MenuItem>
                 <Separator></Separator>
                 <MenuItem Header="Exit" Click="Exit"></MenuItem>
             </MenuItem>
@@ -112,7 +112,7 @@
                     </Grid>
                 </TabItem.Content>
             </TabItem>
-            <TabItem Header="Photos" Name="PhotoTab" Margin="5,31,-5,-31">
+            <TabItem Header="Photos" Name="PhotoTab" Margin="2,31,-2,-31">
                 <TabItem.Content>
 
                     <Grid Margin="0,-31,0,10" Grid.RowSpan="2" RenderTransformOrigin="0.534,0.387">
@@ -134,9 +134,10 @@
                         <Grid Grid.Row="2" Grid.ColumnSpan="3">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="96*"/>
-                                <ColumnDefinition Width="397*"/>
+                                <ColumnDefinition Width="33*"/>
+                                <ColumnDefinition Width="364*"/>
                             </Grid.ColumnDefinitions>
-                            <DataGrid IsReadOnly="True" AutoGenerateColumns="False" Name="Albums" HorizontalAlignment="Left"  Width="485" Margin="0,48,0,-155"  MouseDoubleClick="OpenAlbum" BorderThickness="0,0,0,3" SelectionChanged="Albums_SelectionChanged" BorderBrush="#FFB9B9B9" Grid.ColumnSpan="2">
+                            <DataGrid IsReadOnly="True" AutoGenerateColumns="False" Name="Albums" HorizontalAlignment="Left"  Width="485" Margin="0,48,0,-155"  MouseDoubleClick="OpenAlbum" BorderThickness="0,0,0,3" SelectionChanged="Albums_SelectionChanged" BorderBrush="#FFB9B9B9" Grid.ColumnSpan="3">
                                 <DataGrid.Columns>
                                     <DataGridTextColumn Header="Album" Binding="{Binding PhotoAlbumTitle}"/>
                                     <DataGridTextColumn Header="Size" Binding="{Binding PhotoAlbumSize}">
@@ -148,7 +149,7 @@
                                     </DataGridTextColumn>
                                 </DataGrid.Columns>
                             </DataGrid>
-                            <ListBox Name="photoListBox"  ItemsSource="{Binding PhotoList}" Height="330" Margin="0,160,0,-490" VerticalAlignment="Top" BorderThickness="0" MouseDoubleClick="OpenPhoto" HorizontalContentAlignment="Stretch" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Grid.ColumnSpan="2" >
+                            <ListBox Name="photoListBox"  ItemsSource="{Binding PhotoList}" Height="330" Margin="0,160,0,-490" VerticalAlignment="Top" BorderThickness="0" MouseDoubleClick="OpenPhoto" HorizontalContentAlignment="Stretch" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Grid.ColumnSpan="3" >
                                 <ListBox.ItemsPanel>
                                     <ItemsPanelTemplate>
                                         <WrapPanel >
