@@ -89,15 +89,22 @@ namespace KnowYourMusic
 
         private void LoadUserAudio(object sender, RoutedEventArgs e)
         {
-            string userId;
-            if (UserNameOrId.Text == "")
-                userId = VkAccount.UserId;
-            else
-                userId = UserNameOrId.Text;
-            var users = General.GetUsersInfo(userId);
-            Title = String.Format("Audio files of {0} {1}", users.response[0].first_name, users.response[0].last_name);
-            AllAudioResults = Audio.LoadAudio(userId);
-            Compositions.ItemsSource = AllAudioResults;
+            try
+            {
+                string userId;
+                if (UserNameOrId.Text == "")
+                    userId = VkAccount.UserId;
+                else
+                    userId = UserNameOrId.Text;
+                var users = General.GetUsersInfo(userId);
+                Title = String.Format("Audio files of {0} {1}", users.response[0].first_name, users.response[0].last_name);
+                AllAudioResults = Audio.LoadAudio(userId);
+                Compositions.ItemsSource = AllAudioResults;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Wrong user name or ID!");
+            }
         }
 
         private void LoadSearchResults(object sender, RoutedEventArgs e)
@@ -223,16 +230,23 @@ namespace KnowYourMusic
 
         private void LoadUserVideo(object sender, RoutedEventArgs e)
         {
-            string userId;
-            if (UserNameOrIdForVideo.Text == "")
-                userId = VkAccount.UserId;
-            else
-                userId = UserNameOrIdForVideo.Text;
+            try
+            {
+                string userId;
+                if (UserNameOrIdForVideo.Text == "")
+                    userId = VkAccount.UserId;
+                else
+                    userId = UserNameOrIdForVideo.Text;
 
-            var users = General.GetUsersInfo(userId);
-            Title = String.Format("Video files of {0} {1}", users.response[0].first_name, users.response[0].last_name);
-            AllVideoResults = Video.LoadVideo(userId);
-            Videos.ItemsSource = AllVideoResults;
+                var users = General.GetUsersInfo(userId);
+                Title = String.Format("Video files of {0} {1}", users.response[0].first_name, users.response[0].last_name);
+                AllVideoResults = Video.LoadVideo(userId);
+                Videos.ItemsSource = AllVideoResults;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Wrong user name or ID!");
+            }
         }
 
         private void LoadSearchResultsForVideo(object sender, RoutedEventArgs e)
@@ -264,16 +278,23 @@ namespace KnowYourMusic
 
         private void LoadUserPhotoAlbums(object sender, RoutedEventArgs e)
         {
-            string userId;
-            if (UserNameOrIdForPhotoAlbums.Text == "")
-                userId = VkAccount.UserId;
-            else
-                userId = UserNameOrIdForPhotoAlbums.Text;
+            try
+            {
+                string userId;
+                if (UserNameOrIdForPhotoAlbums.Text == "")
+                    userId = VkAccount.UserId;
+                else
+                    userId = UserNameOrIdForPhotoAlbums.Text;
 
-            var users = General.GetUsersInfo(userId);
-            Title = String.Format("Photos of {0} {1}", users.response[0].first_name, users.response[0].last_name);
-            AllPhotoAlbumsResults = PhotoAlbums.LoadPhotoAlbums(userId);
-            Albums.ItemsSource = AllPhotoAlbumsResults;
+                var users = General.GetUsersInfo(userId);
+                Title = String.Format("Photos of {0} {1}", users.response[0].first_name, users.response[0].last_name);
+                AllPhotoAlbumsResults = PhotoAlbums.LoadPhotoAlbums(userId);
+                Albums.ItemsSource = AllPhotoAlbumsResults;
+            }
+            catch (Exception) 
+            {
+                MessageBox.Show("Wrong user name or ID!");
+            }
         }
 
         private void OpenAlbum(object sender, MouseButtonEventArgs e)
@@ -306,8 +327,6 @@ namespace KnowYourMusic
             }
 
         }
-
-
 
         private void OpenPhoto(object sender, MouseButtonEventArgs e)
         {

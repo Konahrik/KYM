@@ -4,6 +4,6 @@
         Title="PhotoWindow"
         ResizeMode="CanResize">
     <Grid>
-        <WebBrowser Name="PhotoBrowser"  VerticalAlignment="Top" />
+        <WebBrowser Name="PhotoBrowser" VerticalAlignment="Top" />
     </Grid>
 </Window>
