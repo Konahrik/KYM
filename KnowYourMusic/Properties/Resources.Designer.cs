@@ -91,26 +91,6 @@ namespace KnowYourMedia.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        internal static byte[] SEGOEUI {
-            get {
-                object obj = ResourceManager.GetObject("SEGOEUI", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        internal static byte[] SegoeUISemibold {
-            get {
-                object obj = ResourceManager.GetObject("SegoeUISemibold", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap text {
