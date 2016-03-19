@@ -18,6 +18,7 @@ using MahApps.Metro.Controls;
 using System.Windows.Media.Animation;
 using System.Windows.Controls;
 using KnowYourMusic.Features;
+using KnowYourMedia;
 
 namespace KnowYourMusic
 {
@@ -34,6 +35,15 @@ namespace KnowYourMusic
         public List<AudioResponse> AllAudioResults { get; private set; }
         public List<VideoResponse> AllVideoResults { get; private set; }
         public List<PhotoAlbumsResponse> AllPhotoAlbumsResults { get; private set; }
+        public VKPhoto PhotoResults { get; private set; }
+
+        private List<PhotoItem> _photoList = new List<PhotoItem>();
+
+        public List<PhotoItem> PhotoList
+        {
+            get { return _photoList; }
+            set { _photoList = value; }
+        }
 
         public MainWindow()
         {
@@ -264,6 +274,61 @@ namespace KnowYourMusic
             Title = String.Format("Photos of {0} {1}", users.response[0].first_name, users.response[0].last_name);
             AllPhotoAlbumsResults = PhotoAlbums.LoadPhotoAlbums(userId);
             Albums.ItemsSource = AllPhotoAlbumsResults;
+        }
+
+        private void OpenAlbum(object sender, MouseButtonEventArgs e)
+        {
+            photoListBox.ItemsSource = null;
+            _photoList.Clear();
+            // ChangeUserControl();
+            string userId;
+            if (UserNameOrIdForPhotoAlbums.Text == "")
+                userId = VkAccount.UserId;
+            else
+                userId = UserNameOrIdForPhotoAlbums.Text;
+
+            PhotoAlbumsResponse selectedAlbum = (PhotoAlbumsResponse)Albums.SelectedItem;
+            if (selectedAlbum != null)
+            {
+                //var PhotoWindow = new PhotoWindow();
+                PhotoResults = Photos.LoadPhoto(userId, selectedAlbum.Aid);
+                //PhotoWindow.Title = String.Format(selectedAlbum.PhotoAlbumTitle);
+                foreach (var item in PhotoResults.response)
+                {
+                    _photoList.Add(
+                        new PhotoItem
+                        {
+                            UrlPhoto = item.Src_big
+                        });
+                }
+                //PhotoWindow.ShowDialog();
+                photoListBox.ItemsSource = _photoList;
+            }
+
+        }
+
+
+
+        private void OpenPhoto(object sender, MouseButtonEventArgs e)
+        {
+            try
+            {
+                PhotoItem selected = (PhotoItem)photoListBox.SelectedItem;
+                if (selected != null)
+                {
+                    var PhotoWindow = new PhotoWindow();
+                    PhotoWindow.Show();
+                    PhotoWindow.PhotoBrowser.Navigate(String.Format(selected.UrlPhoto));
+                    //PhotoWindow.Title = String.Format(selected);
+
+                }
+            }
+            catch (Exception) { }
+        }
+
+        private void Albums_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

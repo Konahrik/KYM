@@ -17,5 +17,7 @@ namespace KnowYourMusic.Details
         public string PhotoAlbumTitle { get; set; }
         [JsonProperty("size")]
         public string PhotoAlbumSize { get; set; }
+        [JsonProperty("aid")]
+        public string Aid { get; set; }
     }
 }
