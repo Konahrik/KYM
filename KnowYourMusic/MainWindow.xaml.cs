@@ -332,14 +332,21 @@ namespace KnowYourMusic
         {
             try
             {
+                PhotoAlbumsResponse selectedAlbum = (PhotoAlbumsResponse)Albums.SelectedItem;
                 PhotoItem selected = (PhotoItem)photoListBox.SelectedItem;
                 if (selected != null)
                 {
+                    string userId;
+                    if (UserNameOrIdForPhotoAlbums.Text == "")
+                    userId = VkAccount.UserId;
+                    else
+                    userId = UserNameOrIdForPhotoAlbums.Text;
+                    var users = General.GetUsersInfo(userId);
+
                     var PhotoWindow = new PhotoWindow();
                     PhotoWindow.Show();
                     PhotoWindow.PhotoBrowser.Navigate(String.Format(selected.UrlPhoto));
-                    //PhotoWindow.Title = String.Format(selected);
-
+                    PhotoWindow.Title = String.Format("Photo of {0} {1} from {2}", users.response[0].first_name, users.response[0].last_name, selectedAlbum.PhotoAlbumTitle);
                 }
             }
             catch (Exception) { }
