@@ -17,7 +17,7 @@
         <Button Name="Back" Content="Go Back" HorizontalAlignment="Center" Margin="160,500,158,0" VerticalAlignment="Top" Width="76" Click="Back_Click" Height="26" Grid.ColumnSpan="2"/>
         <Grid>
             <Image HorizontalAlignment="Center" Height="225" VerticalAlignment="Top" Width="372" Source="Resources/logo.png" Margin="10,29,-186,0"/>
-            <Image HorizontalAlignment="Center" Height="225" VerticalAlignment="Top" Width="335" Source="Resources/text.png" Margin="29,254,-167,0"/>
+            <Image HorizontalAlignment="Center" Height="259" VerticalAlignment="Top" Width="305" Source="Resources/6.png" Margin="44,241,-152,0"/>
         </Grid>
         <Grid.Background>
             <ImageBrush ImageSource="Resources\dark_blur.jpg"/>
