@@ -346,7 +346,6 @@ namespace KnowYourMusic
         {
             photoListBox.ItemsSource = null;
             _photoList.Clear();
-            // ChangeUserControl();
             string userId;
             if (UserNameOrIdForPhotoAlbums.Text == "")
                 userId = VkAccount.UserId;
@@ -356,9 +355,7 @@ namespace KnowYourMusic
             PhotoAlbumsResponse selectedAlbum = (PhotoAlbumsResponse)Albums.SelectedItem;
             if (selectedAlbum != null)
             {
-                //var PhotoWindow = new PhotoWindow();
                 PhotoResults = Photos.LoadPhoto(userId, selectedAlbum.Aid);
-                //PhotoWindow.Title = String.Format(selectedAlbum.PhotoAlbumTitle);
                 foreach (var item in PhotoResults.response)
                 {
                     _photoList.Add(
@@ -367,7 +364,6 @@ namespace KnowYourMusic
                             UrlPhoto = item.Src_big
                         });
                 }
-                //PhotoWindow.ShowDialog();
                 photoListBox.ItemsSource = _photoList;
             }
 
@@ -395,11 +391,6 @@ namespace KnowYourMusic
                 }
             }
             catch (Exception) { }
-        }
-
-        private void Albums_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
         }
     }
 }

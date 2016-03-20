@@ -137,7 +137,7 @@
                                 <ColumnDefinition Width="33*"/>
                                 <ColumnDefinition Width="364*"/>
                             </Grid.ColumnDefinitions>
-                            <DataGrid IsReadOnly="True" AutoGenerateColumns="False" Name="Albums" HorizontalAlignment="Left"  Width="485" Margin="0,48,0,-155"  MouseDoubleClick="OpenAlbum" BorderThickness="0,0,0,3" SelectionChanged="Albums_SelectionChanged" BorderBrush="#FFB9B9B9" Grid.ColumnSpan="3">
+                            <DataGrid IsReadOnly="True" AutoGenerateColumns="False" Name="Albums" HorizontalAlignment="Left"  Width="485" Margin="0,48,0,-155"  MouseDoubleClick="OpenAlbum" BorderThickness="0,0,0,3" BorderBrush="#FFB9B9B9" Grid.ColumnSpan="3">
                                 <DataGrid.Columns>
                                     <DataGridTextColumn Header="Album" Binding="{Binding PhotoAlbumTitle}"/>
                                     <DataGridTextColumn Header="Size" Binding="{Binding PhotoAlbumSize}">
