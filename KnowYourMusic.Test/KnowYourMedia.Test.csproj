@@ -64,7 +64,7 @@
   <ItemGroup>
     <ProjectReference Include="..\KnowYourMusic\KnowYourMedia.csproj">
       <Project>{025f6fc0-3d55-405f-bb73-50398720a47c}</Project>
-      <Name>KnowYourMusic</Name>
+      <Name>KnowYourMedia</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

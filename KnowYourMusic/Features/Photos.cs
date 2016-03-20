@@ -10,7 +10,7 @@ using System.Windows.Controls;
 
 namespace KnowYourMusic.Features
 {
-    class Photos
+    public class Photos
     {
         public static VKPhoto LoadPhoto(string userId, string albumId)
         {
