@@ -366,7 +366,6 @@ namespace KnowYourMusic
                 }
                 photoListBox.ItemsSource = _photoList;
             }
-
         }
 
         private void OpenPhoto(object sender, MouseButtonEventArgs e)
@@ -379,9 +378,9 @@ namespace KnowYourMusic
                 {
                     string userId;
                     if (UserNameOrIdForPhotoAlbums.Text == "")
-                    userId = VkAccount.UserId;
+                        userId = VkAccount.UserId;
                     else
-                    userId = UserNameOrIdForPhotoAlbums.Text;
+                        userId = UserNameOrIdForPhotoAlbums.Text;
                     var users = General.GetUsersInfo(userId);
 
                     var PhotoWindow = new PhotoWindow();
