@@ -149,7 +149,7 @@
                                     </DataGridTextColumn>
                                 </DataGrid.Columns>
                             </DataGrid>
-                            <ListBox Name="photoListBox"  ItemsSource="{Binding PhotoList}" Height="330" Margin="0,160,0,-490" VerticalAlignment="Top" BorderThickness="0" MouseDoubleClick="OpenPhoto" HorizontalContentAlignment="Stretch" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Grid.ColumnSpan="3" >
+                            <ListBox Name="photoListBox" SelectionMode="Multiple" ItemsSource="{Binding PhotoList}" Height="330" Margin="0,160,0,-490" VerticalAlignment="Top" BorderThickness="0" MouseDoubleClick="OpenPhoto" HorizontalContentAlignment="Stretch" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Grid.ColumnSpan="3" >
                                 <ListBox.ItemsPanel>
                                     <ItemsPanelTemplate>
                                         <WrapPanel >
